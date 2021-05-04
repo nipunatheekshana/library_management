@@ -1,0 +1,96 @@
+html {
+    height: 100%;
+}
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 100%;
+}
+/* login page start */
+.left{
+    float: left;
+    background-color:#ffffff;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+}
+.right{
+    height: 100%;
+    float: right;
+    width: 50%;
+    background-image: url("../img/loging\ bg.jpg");
+    background-size: cover;
+}
+.loginCard{
+    text-align: center;
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    top: 30%;
+}
+.loginCard .login{
+    position: relative;
+    width: 100%;
+    height:45px;
+    border: #797878;
+    border-radius: 0px 5px 5px 0px;
+    background-color: rgb(233, 233, 233);
+    margin-bottom: 20px;
+    font-size: 20px !important;
+    padding: 10px;
+    outline: none;
+}
+.input-container{
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 34px;
+}
+.icon{
+    padding: 10px;
+    background: rgba(11, 11, 122, 0.705);
+    color: white;
+    min-width: 50px;
+    height:45px;
+    text-align: center;
+    position: relative;
+    border-radius: 5px 0px 0px 5px;
+    opacity: 0.9;
+}
+.loginCard button{
+    background-color: rgba(11, 11, 122, 0.705);
+    border: none;
+    height: 50px;
+    width: 100%;
+    font-size: larger;
+    color: #ffffff;
+    margin-top: 20px;
+    border-radius: 5px;
+    opacity: 0.9;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.loginCard button:hover{
+    opacity: 1;
+}
+.loginCard h2{
+    font-size: 40px;
+}
+.checkbox{
+    font-size: 25px;
+    float: left;
+}
+.checkbox input[type=checkbox]{
+    transform: scale(2);
+    cursor: pointer;
+
+}
+.forgot_password{
+    float: right;
+    font-size: 25px;
+}
+.forgot_password a{
+    text-decoration: none;
+}
+/* login pasges esnds  */
