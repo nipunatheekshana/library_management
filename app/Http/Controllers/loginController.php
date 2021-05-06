@@ -11,7 +11,7 @@ class loginController extends Controller
     public function check(Request $request){
 
         $user   =   DB::table('users')
-                    ->select('name')
+                    ->select('first_name')
                     ->where('camp_id', '=', $request->id)
                     ->first();
         // dd($user);
@@ -42,34 +42,44 @@ class loginController extends Controller
     public function roleCheck($id){
 
         $role=DB::table('users')
-        ->select('role')
+        ->select('role','first_name','id')
         ->where('camp_id', '=', $id)
         ->first();
 
         $userRole=$role->role;
+        $userName=$role->first_name;
+        $userId=$role->id;
+
 
         if($userRole=='student'){
             // echo('im a student');
             session([
                 'status' => "loged",
-                'role' => "student"
+                'role' => "student",
+                'username'=>$userName,
+                'userId'=>$userId
             ]);
             return view('pages.home');
         }
         elseif($userRole=='profesor'){
             session([
                 'status' => "loged",
-                'role' => "profesor"
+                'role' => "profesor",
+                'username'=>$userName,
+                'userId'=>$userId
             ]);
             return view('pages.home');
         }
         else{
             session([
                 'status' => "loged",
-                'role' => "librarian"
+                'role' => "librarian",
+                'username'=>$userName,
+                'userId'=>$userId
             ]);
             return view('pages.home');
         }
 
     }
+    
 }

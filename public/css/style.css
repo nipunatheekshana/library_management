@@ -4,6 +4,15 @@ html {
 body {
     font-family: 'Source Sans Pro', sans-serif;
     height: 100%;
+    background-color: rgb(208, 209, 208);
+
+
+}
+.wrapper{
+    width: 100%;
+    max-width: 1180px;
+    padding: 0 10px;
+    margin: 100px auto;
 }
 /* login page start */
 .left{
@@ -94,3 +103,58 @@ body {
     text-decoration: none;
 }
 /* login pasges esnds  */
+
+/* nav start */
+.nav{
+    height: 80px;
+    background-color: rgba(11, 11, 122, 0.705);
+
+}
+.slide_show{
+    height: 200px;
+}
+.logo {
+    float: left;
+}
+.logo span{
+    color: rgb(13, 224, 13);
+}
+.user{
+    float: right;
+}
+.pro_pic{
+    float: right;
+    position: relative;
+    top: -30px;
+    margin: 20px;
+}
+
+/* nav ends */
+
+
+
+/* profile begins */
+
+.profile_box{
+    background-color: rgba(11, 11, 122, 0.705);
+    height: 400px;
+    width: 300px;
+    position: relative;
+    left: -200px;
+    float: left;
+}
+.btn{
+    border-radius: 4px;
+    background-color: rgba(11, 11, 122, 0.705);
+    color: honeydew;
+    height: 50px;
+    width: 100px;
+}
+.role{
+    color: honeydew;
+    position: relative;
+    left: 80px;
+}
+
+/* profile ends */
+

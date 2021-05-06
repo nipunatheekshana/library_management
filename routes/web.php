@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\bookController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\profileController;
 use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,7 @@ Route::get('/delete_user/{id}',[userController::class,('delete')]);
 Route::get('/edit_user/{id}',[userController::class,('edit')]);
 Route::post('/update_user/{id}',[userController::class,('update')]);
 
+Route::get('/profile/{id}',[profileController::class,('index')]);
 
 
 

@@ -2,6 +2,9 @@
 @section('title','Home')
 @section('content')
 
+
+@include('includes.header')
+
 {{-- home of student --}}
 @if (Session::has("status") && session('role')=='student')
 {{ session('role')}}
