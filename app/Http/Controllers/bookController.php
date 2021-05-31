@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Storage;
+
 
 class bookController extends Controller
 {
@@ -36,13 +38,35 @@ class bookController extends Controller
     //product adding function
     public function add(Request $request){
 
+
+        // dd($request->image->extension());
+
+        // rename and upload the image
+        $id=db::table('books')->max('id');
+        $const='book-';
+        $imageid=$id+1;
+        $image_name =$const.$imageid; //new image name
+        $guessExtension = $request->file('image')->guessExtension(); //file extention
+        $file = $request->file('image')->storeAs('books', $image_name.'.'.$guessExtension,'public_uploads' );
+
+        //build url for the image
+        $const_url='img/books/';
+        $url=$const_url.$image_name.'.'.$guessExtension;
+
+
+
+
+
         DB::table('books')->insert(
             [
                 'name' =>$request->name,
                 'quantity' =>$request->quantity,
                 'discription'=>$request->discription,
+                'img'=>$url
+
              ]
         );
+
         return redirect()->back();
     }
 

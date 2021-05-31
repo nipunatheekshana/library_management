@@ -37,7 +37,7 @@
 {{--adding form --}}
 <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-align-center">
     <h3 class="uk-heading uk-align-center"><span>ADD NEW BOOK</span></h3>
-    <form class="uk-form-horizontal uk-margin-large" action="/add" method="post">
+    <form class="uk-form-horizontal uk-margin-large" action="/add" method="post" enctype="multipart/form-data">
 
         <div class="uk-margin">
             <label class="uk-form-label" for="form-horizontal-text">Book name</label>
@@ -55,6 +55,14 @@
             <label class="uk-form-label" for="form-horizontal-text">Discription</label>
             <div class="uk-form-controls">
                 <input class="uk-input" id="form-horizontal-text" name="discription" type="text" placeholder="Some text...">
+            </div>
+        </div>
+        {{-- Image --}}
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">Image</label>
+            <div class="js-upload uk-flex uk-padding-small  uk-padding-remove-bottom" uk-form-custom>
+                <input name="image" type="file" multiple>
+                <button class="uk-button-small uk-button-primary uk-width-1-1" type="button" tabindex="-1"><i uk-icon="image" class="uk-margin-small-right"></i>Select</button>
             </div>
         </div>
         <button class="uk-button uk-button-secondary uk-align-center" type="submit">Add Book</button>

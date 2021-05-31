@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -50,6 +51,10 @@ class loginController extends Controller
         $userName=$role->first_name;
         $userId=$role->id;
 
+        $books=new Book();
+        $data=$books->all();
+
+        // dd($data);
 
         if($userRole=='student'){
             // echo('im a student');
@@ -59,7 +64,6 @@ class loginController extends Controller
                 'username'=>$userName,
                 'userId'=>$userId
             ]);
-            return view('pages.home');
         }
         elseif($userRole=='profesor'){
             session([
@@ -68,7 +72,6 @@ class loginController extends Controller
                 'username'=>$userName,
                 'userId'=>$userId
             ]);
-            return view('pages.home');
         }
         else{
             session([
@@ -77,9 +80,9 @@ class loginController extends Controller
                 'username'=>$userName,
                 'userId'=>$userId
             ]);
-            return view('pages.home');
         }
+        return view('pages.home',compact('data'));
 
     }
-    
+
 }

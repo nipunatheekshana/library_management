@@ -158,3 +158,21 @@ body {
 
 /* profile ends */
 
+/* home start */
+.book_left{
+    background-color: rgba(11, 11, 122, 0.705);
+    height: 200px;
+    width: 200px;
+    position: relative;
+    left: 100px;
+    float: left;
+}
+.book_right{
+    float: right;
+}
+.book_box::after{
+    content: "";
+    clear: both;
+    display: block;
+}
+/* home end */
