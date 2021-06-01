@@ -10,21 +10,55 @@
     <form class="uk-form-horizontal uk-margin-large" action="/update/{{session('id')}}" method="post">
 
         <div class="uk-margin">
-            <label class="uk-form-label" for="form-horizontal-text">product name</label>
+            <label class="uk-form-label" for="form-horizontal-text">ISBN number</label>
             <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" name="name" type="text" placeholder="Some text..." value="{{session('name')}}">
+                <input class="uk-input" id="form-horizontal-text" value="{{session('isbnNum')}}" name="isbnNum" type="text" placeholder="Some text...">
             </div>
         </div>
         <div class="uk-margin">
-            <label class="uk-form-label" for="form-horizontal-text">Duantity</label>
+            <label class="uk-form-label" for="form-horizontal-text">Title</label>
             <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" name="quantity" type="text" placeholder="Some text..." value="{{session('quantity')}}">
+                <input class="uk-input" id="form-horizontal-text" value="{{session('title')}}" name="title" type="text" placeholder="Some text...">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">Author Name</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" value="{{session('authorName')}}" name="authorName" type="text" placeholder="Some text...">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">Publisher</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" value="{{session('publisher')}}" name="publisher" type="text" placeholder="Some text...">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">Category</label>
+
+            <div class="uk-form-controls">
+                <select class="uk-select" name="category">
+                        <option value="{{session('category_id')}}">{{session('category')}}</option>
+                    @if (isSet($category))
+                        @foreach ($category as $category )
+                        <option value="{{$category->id}}">{{$category->category}}</option>
+                        @endforeach
+                    @endif
+
+                </select>
+            </div>
+
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">Edition</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" value="{{session('edition')}}" name="edition" type="text" placeholder="Some text...">
             </div>
         </div>
         <div class="uk-margin">
             <label class="uk-form-label" for="form-horizontal-text">Discription</label>
             <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" name="discription" type="text" placeholder="Some text..." value="{{session('discription')}}">
+                <input class="uk-input" id="form-horizontal-text" value="{{session('discription')}}" name="discription" type="text" placeholder="Some text...">
             </div>
         </div>
         <button class="uk-button uk-button-secondary uk-align-center" type="submit">Update Book</button>
@@ -40,15 +74,46 @@
     <form class="uk-form-horizontal uk-margin-large" action="/add" method="post" enctype="multipart/form-data">
 
         <div class="uk-margin">
-            <label class="uk-form-label" for="form-horizontal-text">Book name</label>
+            <label class="uk-form-label" for="form-horizontal-text">ISBN number</label>
             <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" name="name" type="text" placeholder="Some text...">
+                <input class="uk-input" id="form-horizontal-text" name="isbnNum" type="text" placeholder="Some text...">
             </div>
         </div>
         <div class="uk-margin">
-            <label class="uk-form-label" for="form-horizontal-text">Quantity</label>
+            <label class="uk-form-label" for="form-horizontal-text">Title</label>
             <div class="uk-form-controls">
-                <input class="uk-input" id="form-horizontal-text" name="quantity" type="text" placeholder="Some text...">
+                <input class="uk-input" id="form-horizontal-text" name="title" type="text" placeholder="Some text...">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">Author Name</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" name="authorName" type="text" placeholder="Some text...">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">Publisher</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" name="publisher" type="text" placeholder="Some text...">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">Category</label>
+
+
+            <div class="uk-form-controls">
+                <select class="uk-select" name="category">
+                    @foreach ($data[1] as $category )
+                        <option value="{{$category->id}}">{{$category->category}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+        </div>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="form-horizontal-text">Edition</label>
+            <div class="uk-form-controls">
+                <input class="uk-input" id="form-horizontal-text" name="edition" type="text" placeholder="Some text...">
             </div>
         </div>
         <div class="uk-margin">
@@ -88,7 +153,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($books as $book)
+            @foreach ($data[0] as $book)
                 <tr>
                     <td>{{$book->id}}</td>
                     <td>{{$book->name}}</td>

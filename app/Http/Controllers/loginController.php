@@ -51,8 +51,7 @@ class loginController extends Controller
         $userName=$role->first_name;
         $userId=$role->id;
 
-        $books=new Book();
-        $data=$books->all();
+
 
         // dd($data);
 
@@ -81,8 +80,13 @@ class loginController extends Controller
                 'userId'=>$userId
             ]);
         }
-        return view('pages.home',compact('data'));
+        return  $this->log();
 
+    }
+    public function log(){
+        $books=new Book();
+        $data=$books->where('barrow_status',0)->get();
+        return view('pages.home',compact('data'));
     }
 
 }

@@ -3,83 +3,45 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barrow;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class BarrowController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+
+    public function barrow($id){
+        try{
+            //insert data into barrow tabale
+            $barrow=new Barrow();
+            $barrow->book_id=$id;
+            $barrow->User_id =session('userId');
+            $barrow->save();
+
+            //update barrow status data in books tabale
+            $book=new Book();
+            $book=Book::find($id);
+            $book->barrow_status=1;
+            $save=$book->save();
+
+            $responseBody = $this->responseBody(true, "barrow", "success", $save);
+
+        }catch(\Exception $error){
+
+            $responseBody = $this->responseBody(false, "barrow", "error", $error);
+
+        }
+        return response()->json([ "data" => $responseBody ]);
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Barrow  $barrow
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Barrow $barrow)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Barrow  $barrow
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Barrow $barrow)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Barrow  $barrow
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Barrow $barrow)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Barrow  $barrow
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Barrow $barrow)
-    {
-        //
+    // $responseBody = $this->responseBody(true, "Supplier", "All", $field_officers_array);
+    function responseBody($success, $name, $message, $result) {
+        $body = [
+            "success" => $success,
+            "name" => $name,
+            "message" => $message,
+            "result" => $result
+        ];
+        return $body;
     }
 }

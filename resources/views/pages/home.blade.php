@@ -11,7 +11,7 @@
 <div class="uk-card uk-card-default uk-card-body uk-width-3-4@m uk-align-center book_box">
     <div class="uk-child-width-1-4@m" uk-grid>
         @foreach ($data as $book )
-            <div>
+            <div id="book-{{$book->id}}">
                 <div class="uk-card uk-card-default">
                     <div class="uk-card-media-top" style="height: 200px; background-image: url('{{$book->img}}');background-repeat: no-repeat;background-size: cover;background-position: center;">
                         {{-- <img src="{{$book->img}}" alt=""> --}}
