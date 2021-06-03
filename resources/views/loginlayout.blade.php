@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>L.S.U.L | @yield('title')</title>
-    <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('css/logincss.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')}}">
     <link rel="icon" href="{{asset('img/favi.png')}}" type="image/png" sizes="16x16">
     <!-- UIkit CSS -->
@@ -24,7 +24,7 @@
 </head>
 <body>
 
-        @include('includes.header')
+        {{-- @include('includes.header') --}}
         @yield('content')
         @include('includes.footer')
 

@@ -3,7 +3,6 @@
 @section('content')
 
 
-@include('includes.header')
 
 <div class="uk-card uk-card-default uk-card-body uk-width-3-4@m uk-align-center">
     <div class="profile_box">

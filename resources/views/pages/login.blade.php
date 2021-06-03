@@ -1,4 +1,4 @@
-@extends('app')
+@extends('loginlayout')
 @section('title','Login')
 @section('content')
 <div class="left">

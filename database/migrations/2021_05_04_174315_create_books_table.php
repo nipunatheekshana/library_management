@@ -22,7 +22,7 @@ class CreateBooksTable extends Migration
             $table->string('category_id');
             $table->string('edition');
             $table->string('img');
-            $table->string('barrow_status')->nullable();
+            $table->boolean('barrow_status')->nullable();
             $table->string('discription');
             $table->timestamps();
         });

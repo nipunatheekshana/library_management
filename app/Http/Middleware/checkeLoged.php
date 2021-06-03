@@ -18,10 +18,12 @@ class checkeLoged
     public function handle(Request $request, Closure $next)
     {
         if (session()->has('userId')){
-            return redirect('/log');
+            return $next($request);
+
         }
         else{
-            return $next($request);
+            return redirect('/log');
+
         }
     }
 }

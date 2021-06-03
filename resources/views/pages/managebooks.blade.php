@@ -144,10 +144,10 @@
     <table class="uk-table uk-table-justify uk-table-divider">
         <thead>
             <tr>
-                <th class="uk-width-small">NO</th>
-                <th>Book Name</th>
-                <th>Quantity</th>
-                <th>Discription</th>
+                <th class="uk-width-small">ISBN No</th>
+                <th>Title</th>
+                <th>Author Name</th>
+                <th>publisher</th>
                 <th>Update</th>
                 <th>Delete</th>
             </tr>
@@ -155,10 +155,10 @@
         <tbody>
             @foreach ($data[0] as $book)
                 <tr>
-                    <td>{{$book->id}}</td>
-                    <td>{{$book->name}}</td>
-                    <td>{{$book->quantity}}</td>
-                    <td>{{$book->discription}} </td>
+                    <td>{{$book->isbnNum}}</td>
+                    <td>{{$book->title}}</td>
+                    <td>{{$book->authorName}}</td>
+                    <td>{{$book->publisher}} </td>
                     <form action="/edit/{{$book->id}}" method="get">
                         <td><button class="uk-button uk-button-primary " type="submit">Update</button></td>
 

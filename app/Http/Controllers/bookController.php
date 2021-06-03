@@ -57,7 +57,7 @@ class bookController extends Controller
             $book->category_id=$request->category;
             $book->edition=$request->edition;
             $book->img=$url;
-            $book->barrow_status=0;
+            $book->barrow_status=false;
             $book->discription=$request->discription;
             $book->save();
 

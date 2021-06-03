@@ -3,7 +3,6 @@
 @section('content')
 
 
-@include('includes.header')
 
 {{-- home of student --}}
 @if (Session::has("status") && session('role')=='student')
@@ -17,7 +16,7 @@
                         {{-- <img src="{{$book->img}}" alt=""> --}}
                     </div>
                     <div class="uk-card-body" style="height: 200px;">
-                        <h3 class="uk-card-title">{{$book->name}}</h3>
+                        <h3 class="uk-card-title">{{$book->title}}</h3>
                         <p>{{$book->discription}}</p>
                         <button class="uk-button uk-button-primary" onclick="barrow({{$book}})">Barrow</button>
                     </div>

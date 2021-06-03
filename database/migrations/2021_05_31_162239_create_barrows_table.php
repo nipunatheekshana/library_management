@@ -15,8 +15,9 @@ class CreateBarrowsTable extends Migration
     {
         Schema::create('barrows', function (Blueprint $table) {
             $table->id();
-            $table->string('book_id')->unique();
-            $table->string('User_id')->unique();
+            $table->string('book_id');
+            $table->string('User_id');
+            $table->boolean('status');
             $table->timestamps();
         });
     }
